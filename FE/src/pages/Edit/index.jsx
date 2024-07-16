@@ -15,7 +15,7 @@ const Edit = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`/api/v2/products/${id}`);
+                const response = await fetch(`http://localhost:3000/api/v2/products/${id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch product');
                 }
@@ -32,7 +32,7 @@ const Edit = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch(`/api/v2/products/${id}`, {
+            const response = await fetch(`http://localhost:3000/api/v2/products/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

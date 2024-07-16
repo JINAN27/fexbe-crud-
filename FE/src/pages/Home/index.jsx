@@ -7,7 +7,7 @@ const Home = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('/api/v2/products');
+            const response = await fetch('http://localhost:3000/api/v2/products');
             if (!response.ok) {
                 throw new Error('Failed to fetch products');
             }
@@ -24,7 +24,7 @@ const Home = () => {
 
     const handleDeleteProduct = async (productId) => {
         try {
-            const response = await fetch(`/api/v2/products/${productId}`, {
+            const response = await fetch(`http://localhost:3000/api/v2/products/${productId}`, {
                 method: 'DELETE',
             });
             if (!response.ok) {
@@ -62,7 +62,7 @@ const Home = () => {
                             <td className="text-center">
                                 <Link to={`/detail/${product._id}`} className="btn btn-sm btn-info">Detail</Link>
                                 <Link to={`/edit/${product._id}`} className="btn btn-sm btn-warning">Edit</Link>
-                                <button onClick={() => handleDeleteProduct(product._id)} className="btn btn-sm btn-danger">Delete</button>
+                                <Link to={`/delete/${product._id}`} className="btn btn-sm btn-warning">Delete</Link>
                             </td>
                         </tr>
                     ))}

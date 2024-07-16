@@ -3,19 +3,19 @@ const app = express();
 const logger = require('morgan');
 const mongodb = require('./config/mongodb');
 const productRoutes = require('./product_v2/routes');
-const cors = require('cors');
+const cors = require('cors'); // Tambahkan ini untuk mengimpor middleware CORS
 
-app.use(cors());
+// Set up middleware
+app.use(cors()); // Gunakan CORS middleware untuk mengizinkan semua origin
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 mongodb.connect().then((client) => {
     const db = client.db('eduwork');
     productRoutes.setDB(db);
 
-   
     app.use('/api/v2', productRoutes.router);
 
     const PORT = process.env.PORT || 3000;

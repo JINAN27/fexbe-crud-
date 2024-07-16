@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import Delete from './pages/Delete';
 import Detail from './pages/Detail';
 import Edit from './pages/Edit';
 import Home from './pages/Home';
 import Tambah from './pages/Tambah';
+
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
           <Route path="/detail/:id" children={() => <Detail />} /> 
           <Route path="/edit/:id" children={() => <Edit />} /> 
           <Route path="/tambah" children={() => <Tambah />} />
+          <Route path="/delete/:id" children={() => <Delete />} />
         </Switch>
       </BrowserRouter>
     </div>
