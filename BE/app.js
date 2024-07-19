@@ -2,11 +2,10 @@ const express = require('express');
 const app = express();
 const logger = require('morgan');
 const mongodb = require('./config/mongodb');
-const productRoutes = require('./product_v2/routes');
-const cors = require('cors'); // Tambahkan ini untuk mengimpor middleware CORS
+const productRoutes = require('./routes/product_v2/routes');
+const cors = require('cors'); 
 
-// Set up middleware
-app.use(cors()); // Gunakan CORS middleware untuk mengizinkan semua origin
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());

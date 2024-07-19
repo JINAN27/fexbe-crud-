@@ -22,21 +22,6 @@ const Home = () => {
         fetchProducts();
     }, []);
 
-    const handleDeleteProduct = async (productId) => {
-        try {
-            const response = await fetch(`http://localhost:3000/api/v2/products/${productId}`, {
-                method: 'DELETE',
-            });
-            if (!response.ok) {
-                throw new Error('Failed to delete product');
-            }
-            alert('Product deleted successfully');
-            fetchProducts();
-        } catch (error) {
-            console.error('Error deleting product:', error.message);
-            alert('Failed to delete product');
-        }
-    };
 
     return (
         <div className="main">
